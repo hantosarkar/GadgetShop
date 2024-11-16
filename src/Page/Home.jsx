@@ -12,8 +12,12 @@ const Home = () => {
             <Nav></Nav>
             <div className='min-h-screen'>
                 <Banner></Banner>
-                <ShowProducts></ShowProducts>
-                <FreeqenAsk></FreeqenAsk>
+                <div className='container'>
+                    <div className='mx-auto w-full'>
+                        <ShowProducts></ShowProducts>
+                        <FreeqenAsk></FreeqenAsk>
+                    </div>
+                </div>
             </div>
             <div>
                 <Footer></Footer>

@@ -8,7 +8,6 @@ import { AuthContext } from '../Provider/Provider';
 const Register = () => {
     const navigate =useNavigate();
     const { regisTer , setLoginSuccess } = useContext(AuthContext);
-    console.log(regisTer);
 
     const {
         register,

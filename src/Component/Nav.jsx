@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/Provider';
 
 const Nav = () => {
-    const { user } = useContext(AuthContext);
+    const { user , logOut} = useContext(AuthContext);
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -76,7 +76,7 @@ const Nav = () => {
                                     </a>
                                 </li>
                                 <li><a>Settings</a></li>
-                                <li><a>Logout</a></li>
+                                <li><a onClick={logOut}>Logout</a></li>
                             </ul>
                         </div>
                             :
