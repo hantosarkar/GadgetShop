@@ -4,18 +4,19 @@ import Nav from '../Component/Nav';
 import Footer from '../Component/Footer';
 import Banner from '../Component/Home/Banner';
 import ShowProducts from '../Component/Home/ShowProducts';
+import FreeqenAsk from '../Component/Home/FreeqenAsk';
 
 const Home = () => {
     return (
         <div>
             <Nav></Nav>
-            <Banner></Banner>
             <div className='min-h-screen'>
-             <ShowProducts></ShowProducts>
+                <Banner></Banner>
+                <ShowProducts></ShowProducts>
+                <FreeqenAsk></FreeqenAsk>
             </div>
-
             <div>
-                 <Footer></Footer>
+                <Footer></Footer>
             </div>
         </div>
     );
