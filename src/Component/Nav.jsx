@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/Provider';
 
 const Nav = () => {
-    const { user , logOut} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -70,9 +70,9 @@ const Nav = () => {
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                                 <li>
-                                    <a className="justify-between">
+                                    <Link to="/Dashboard" className="justify-between">
                                         Dashboard
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li><a onClick={logOut}>Logout</a></li>
                             </ul>
