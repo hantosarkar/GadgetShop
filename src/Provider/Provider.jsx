@@ -2,15 +2,16 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import React, { createContext, useEffect, useState } from 'react';
 import { auth } from '../Firebase/FirebaseInfo';
 
-export const AuthContext = createContext() ;
-const Provider = ({children}) => {
+export const AuthContext = createContext();
+const Provider = ({ children }) => {
 
 
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true);
     const [loginSuccess, setLoginSuccess] = useState(false);
 
-    const register = (email, password) => {
+    const regisTer = (email, password) => {
+        console.log(email , password);
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
@@ -38,11 +39,9 @@ const Provider = ({children}) => {
     }, []);
 
 
-
-
-    const AuthInfo = {}
+    const authInfo = { regisTer, Login, logOut, user, loading , setLoginSuccess }
     return (
-        <AuthContext.Provider value={AuthInfo}>
+        <AuthContext.Provider value={authInfo}>
             {children}
         </AuthContext.Provider>
     );

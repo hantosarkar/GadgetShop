@@ -1,10 +1,14 @@
-import React from 'react';
+import { useContext } from 'react';
 import Nav from '../Component/Nav';
 import Footer from '../Component/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../Provider/Provider';
 
 const Register = () => {
+    const navigate =useNavigate();
+    const { regisTer , setLoginSuccess } = useContext(AuthContext);
+    console.log(regisTer);
 
     const {
         register,
@@ -14,10 +18,17 @@ const Register = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
-        const Email = data.email ;
-        const password = data.password;
-         console.log(Email ,  password);
+       
+        const email = data?.email;
+        const password = data?.password;
+        console.log(password,email);
+        if (email && password) {
+            regisTer(email, password)
+            .then(() => {
+                navigate("/")
+            })
+            .catch(error => console.error(error))
+        }
 
     }
 
@@ -32,7 +43,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input {...register('email',{required:true})} type="email" placeholder="email" className="input input-bordered"  />
+                                <input {...register('email', { required: true })} type="email" placeholder="email" className="input input-bordered" />
                                 {
                                     errors.email && <p className='font-light text-red-600'>Email is required </p>
                                 }
@@ -41,13 +52,13 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input {...register('password' ,{required:true , minLength: 6})} type="password" placeholder="password" className="input input-bordered"  />
+                                <input {...register('password', { required: true, minLength: 6 })} type="password" placeholder="password" className="input input-bordered" />
                                 {
-                                    errors.password == "required" && ( <p className='font-light text-red-600'>password is required </p>
-                                )}
+                                    errors.password == "required" && (<p className='font-light text-red-600'>password is required </p>
+                                    )}
                                 {
                                     errors.password == "minLength" && (<p className='font-light text-red-600'>password mini 6 chr </p>
-                               ) }
+                                    )}
                             </div>
                             <div className="form-control">
                                 <label className="label">
