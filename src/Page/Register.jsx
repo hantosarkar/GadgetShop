@@ -10,13 +10,14 @@ const Register = () => {
         register,
         handleSubmit,
         watch,
-        type
-        ,
         formState: { errors },
     } = useForm();
 
     const onSubmit = (data) => {
         console.log(data);
+        const Email = data.email ;
+        const password = data.password;
+         console.log(Email ,  password);
 
     }
 
