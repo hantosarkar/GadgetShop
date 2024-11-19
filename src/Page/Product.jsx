@@ -9,14 +9,18 @@ const Product = () => {
     const [products, setProduct] = useState([]);
     const [Category, setCategory] = useState([]);
     const [brand, setBrand] = useState([]);
-    const [sort, setSort] = useState();
+    //for Search
+    const [sort, setSort] = useState('ASC');
+    const [CategorySearch, setCategorySearch] = useState('');
+    const [brandSearch, setBrandSearch] = useState('');
+
+
 
     useEffect(() => {
         const fetch = () => {
-            axios.get(`http://localhost:3000/Product?Short=${sort}`)
+            axios.get(`http://localhost:3000/Product?Brand=${brandSearch}&Category=${CategorySearch}&Short=${sort}`)
                 .then(res => {
                     if (res.data) {
-
                         setProduct(res.data.Product);
                         setCategory(res.data.allCategory);
                         setBrand(res.data.allBrand);
@@ -24,7 +28,7 @@ const Product = () => {
                 })
         }
         fetch();
-    }, [sort])
+    }, [sort, CategorySearch, brandSearch])
 
     const handleShort = (e) => {
         setSort(e.target.value);
@@ -32,7 +36,12 @@ const Product = () => {
 
 
     const handleBrandSearch = (e) => {
+        setBrandSearch(e.target.value)
 
+    }
+
+    const handleCategorySearch = (e) => {
+        setCategorySearch(e.target.value)
 
     }
 
@@ -47,7 +56,7 @@ const Product = () => {
                         <div className='space-y-3'>
                             <div>
                                 <h1 className='text-xs font-thin mb-1'>Category</h1>
-                                <select className="select select-bordered w-full max-w-xs">
+                                <select onClick={handleCategorySearch} className="select select-bordered w-full max-w-xs">
 
                                     {
 
@@ -60,7 +69,7 @@ const Product = () => {
                             </div>
                             <div>
                                 <h1 className='text-xs font-thin  mb-1'>Brand</h1>
-                                <select className="select select-bordered w-full max-w-xs">
+                                <select onClick={handleBrandSearch} className="select select-bordered w-full max-w-xs">
                                     {
 
                                         brand.map((brand, i) =>
