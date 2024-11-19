@@ -19,12 +19,11 @@ const Register = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-
         const email = data?.email;
         const password = data?.password;
         const role = data?.Role;
         const user = { email, password, role }
-        console.log(password, email);
+        // console.log(password, email);
         if (email && password) {
             regisTer(email, password)
                 .then(res => {
