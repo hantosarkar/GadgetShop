@@ -4,7 +4,7 @@ const FreeqenAsk = () => {
     return (
         <div>
 
-            
+
             <div className='w-4/5 mx-auto py-10 space-y-5'>
                 <div>
                     <h1 className='text-2xl py-10 font-bold text-center'>Frequently Ask Question </h1>
@@ -31,8 +31,6 @@ const FreeqenAsk = () => {
                         <p>hello</p>
                     </div>
                 </div>
-
-
 
 
             </div>
