@@ -6,16 +6,16 @@ const Products = ({ products }) => {
             <div className="card bg-base-100 shadow-xl">
                 <figure>
                     <img
-                    className='h-40 w-full bg-cover'
+                    className='h-40 w-full object-cover'
                         src={products?.image} />
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">{products?.title}</h2>
-                    <p>Description : {products?.description.length > 40 ? products?.description.substring(0, 40): products?.description }</p>
-                    <p>Price : {products?.price}</p>
+                    <p className='text-sm'>Description : {products?.description.length > 35 ? products?.description.substring(0, 35): products?.description }</p>
                     <p>Brand : {products?.brand}</p>
+                    <p className='font-bold'>Price : {products?.price}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Add to Wishlist</button>
+                        <button className="btn btn-primary w-full btn-sm">Add to Wishlist</button>
                     </div>
                 </div>
             </div>

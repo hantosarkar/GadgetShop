@@ -7,20 +7,35 @@ import Products from '../Component/Product/Products';
 const Product = () => {
 
     const [products, setProduct] = useState([]);
-    const [Category, setCategory] = useState();
-    const [brand, setBrand] = useState();
+    const [Category, setCategory] = useState([]);
+    const [brand, setBrand] = useState([]);
     const [sort, setSort] = useState();
 
     useEffect(() => {
-
         const fetch = () => {
-            axios.get("http://localhost:3000/Product")
-                .then(res => setProduct(res.data))
+            axios.get(`http://localhost:3000/Product?Short=${sort}`)
+                .then(res => {
+                    if (res.data) {
+
+                        setProduct(res.data.Product);
+                        setCategory(res.data.allCategory);
+                        setBrand(res.data.allBrand);
+                    }
+                })
         }
-
         fetch();
+    }, [sort])
 
-    }, [])
+    const handleShort = (e) => {
+        setSort(e.target.value);
+    }
+
+
+    const handleBrandSearch = (e) => {
+
+
+    }
+
 
     return (
         <div>
@@ -33,15 +48,25 @@ const Product = () => {
                             <div>
                                 <h1 className='text-xs font-thin mb-1'>Category</h1>
                                 <select className="select select-bordered w-full max-w-xs">
-                                    <option>Han Solo</option>
-                                    <option>Greedo</option>
+
+                                    {
+
+                                        Category.map((cate, i) =>
+                                            <option key={i}>{cate}</option>
+                                        )
+                                    }
+
                                 </select>
                             </div>
                             <div>
                                 <h1 className='text-xs font-thin  mb-1'>Brand</h1>
                                 <select className="select select-bordered w-full max-w-xs">
-                                    <option>Han Solo</option>
-                                    <option>Greedo</option>
+                                    {
+
+                                        brand.map((brand, i) =>
+                                            <option key={i}>{brand}</option>
+                                        )
+                                    }
                                 </select>
                             </div>
                             <div>
@@ -65,9 +90,9 @@ const Product = () => {
                     <div class="w-52">
                         <div className='flex gap-3 items-center'>
                             <h1>Prize</h1>
-                            <select className="border p-1 rounded outline-none">
-                                <option>Low</option>
-                                <option>Heigh</option>
+                            <select onClick={handleShort} className="border p-1 rounded outline-none">
+                                <option value='ASC'>Low</option>
+                                <option value="DESC">Heigh</option>
                             </select>
 
                         </div>
