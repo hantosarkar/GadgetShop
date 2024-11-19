@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from '../Component/Nav';
 import Footer from '../Component/Footer';
+import axios from 'axios';
+import Products from '../Component/Product/Products';
 
 const Product = () => {
+
+    const [products, setProduct] = useState([]);
+    const [Category, setCategory] = useState();
+    const [brand, setBrand] = useState();
+    const [sort, setSort] = useState();
+
+    useEffect(() => {
+
+        const fetch = () => {
+            axios.get("http://localhost:3000/Product")
+                .then(res => setProduct(res.data))
+        }
+
+        fetch();
+
+    }, [])
+
     return (
         <div>
             <Nav></Nav>
@@ -30,8 +49,17 @@ const Product = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="bg-slate-300 flex-1">
-                        02
+                    <div class="flex-1">
+
+                        <div className='grid gap-2 grid-cols-3'>
+
+                            {
+                                products.map((products, i) =>
+                                    <Products key={i} products={products} ></Products>
+                                )
+                            }
+                        </div>
+
 
                     </div>
                     <div class="w-52">
