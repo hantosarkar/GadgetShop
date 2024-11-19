@@ -4,10 +4,12 @@ import Footer from '../Component/Footer';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../Provider/Provider';
+import axios from 'axios';
+import { confirmPasswordReset } from 'firebase/auth';
 
 const Register = () => {
-    const navigate =useNavigate();
-    const { regisTer , setLoginSuccess } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const { regisTer, setLoginSuccess } = useContext(AuthContext);
 
     const {
         register,
@@ -17,16 +19,23 @@ const Register = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-       
+
         const email = data?.email;
         const password = data?.password;
-        console.log(password,email);
+        const role = data?.Role;
+        const user = { email, password, role }
+        console.log(password, email);
         if (email && password) {
             regisTer(email, password)
-            .then(() => {
-                navigate("/")
-            })
-            .catch(error => console.error(error))
+                .then(res => {
+                    axios.post('http://localhost:3000/user', user).
+                        then(res => {
+                            if (res.data.acknowledged) {
+                                navigate("/")
+                            }
+                        })
+                })
+                .catch(error => console.error(error))
         }
 
     }

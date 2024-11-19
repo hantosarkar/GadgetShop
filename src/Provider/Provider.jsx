@@ -11,7 +11,6 @@ const Provider = ({ children }) => {
     const [loginSuccess, setLoginSuccess] = useState(false);
 
     const regisTer = (email, password) => {
-        console.log(email , password);
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
