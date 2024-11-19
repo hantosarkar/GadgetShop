@@ -29,17 +29,20 @@ const Provider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-
+            console.log(currentUser);
             if (currentUser) {
                 axios.post("http://localhost:3000/jwt", { email: currentUser.email }).
                     then(res => {
                         if (res.data) {
-                            localStorage.setItem('Token' ,  res.data?.token)
-
+                            localStorage.setItem('Token', res.data?.token)
+                            setLoading(false);
                         }
                     })
+            } else {
+                localStorage.removeItem('Token');
+                setLoading(false);
             }
-            setLoading(false);
+
             const userinfo = { email: currentUser?.email }
         })
 
