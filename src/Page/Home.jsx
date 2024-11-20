@@ -10,13 +10,13 @@ const Home = () => {
     return (
         <div>
             <Nav></Nav>
-            <div className='min-h-screen'>
-                <Banner></Banner>
-                <div className='container'>
-                    <div className='mx-auto w-full'>
-                        <ShowProducts></ShowProducts>
-                        <FreeqenAsk></FreeqenAsk>
-                    </div>
+            <div className='min-h-screen w-full'>
+                <div className='w-full'>
+                    <Banner></Banner>
+                </div>
+                <div className='container mx-auto'>
+                    <ShowProducts></ShowProducts>
+                    <FreeqenAsk></FreeqenAsk>
                 </div>
             </div>
             <div>

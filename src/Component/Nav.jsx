@@ -37,7 +37,7 @@ const Nav = () => {
                             <li><a>About Us</a></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Gadget Shop</a>
+                    <a className="btn btn-ghost lg:text-xl">Gadget Shop</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -70,8 +70,8 @@ const Nav = () => {
                         </div>
                             :
                             <div className='flex gap-3'>
-                                <NavLink to="/Login" className="btn btn-info">Login</NavLink>
-                                <NavLink to="/Register" className="btn btn-accent">Register</NavLink>
+                                <NavLink to="/Login" className="btn btn-sm bg-info  text-white lg:btn btn-info lg:text-white">Login</NavLink>
+                                <NavLink to="/Register" className="btn btn-sm bg-accent  text-white lg:btn btn-accent lg:text-white ">Register</NavLink>
                             </div>
                     }
 

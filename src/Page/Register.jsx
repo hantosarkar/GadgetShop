@@ -5,10 +5,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../Provider/Provider';
 import axios from 'axios';
-import { confirmPasswordReset } from 'firebase/auth';
-
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { FcGoogle } from "react-icons/fc";
+import { auth } from '../Firebase/FirebaseInfo';
 const Register = () => {
     const navigate = useNavigate();
+    const googleProvider = new GoogleAuthProvider();
     const { regisTer, setLoginSuccess } = useContext(AuthContext);
 
     const {
@@ -30,13 +32,26 @@ const Register = () => {
                     axios.post('http://localhost:3000/user', user).
                         then(res => {
                             if (res.data.acknowledged) {
-                                navigate("/")
+                                navigate(location?.state ? location.state : '/');
                             }
                         })
                 })
                 .catch(error => console.error(error))
         }
 
+    }
+
+
+    const handleGoogleLogging = () => {
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                navigate(location?.state ? location.state : '/');
+                const user = result.user;
+                // console.log(user)
+            })
+            .catch((error) => {
+                console.log(error.message)
+            })
     }
 
     return (
@@ -74,7 +89,7 @@ const Register = () => {
                                 })}
                                     type="password" placeholder="password" className="input input-bordered" />
                                 {
-                                    errors.password == "required" && (<p className='font-light text-red-600'>password is required </p>
+                                    errors.password?.type == "required" && (<p className='font-light text-red-600'>password is required </p>
                                     )}
                                 {
                                     errors.password && (<p className='font-thin text-red-600'>{errors.password.message} </p>
@@ -97,6 +112,10 @@ const Register = () => {
                                 <button type='submit' className="btn btn-accent text-white">Register</button>
                             </div>
                         </form>
+                        <div className="divider">OR</div>
+                        <div className="form-control px-7 pb-5 mt-2">
+                            <button onClick={handleGoogleLogging} className="btn flex gap-4"><FcGoogle />Google</button>
+                        </div>
                     </div>
                 </div>
             </div>
