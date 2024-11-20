@@ -7,7 +7,7 @@ const Products = ({ products }) => {
             <div className="card bg-base-100 shadow-xl">
                 <figure>
                     <img
-                    className='h-40 w-full object-cover'
+                    className='h-32 w-full object-cover'
                         src={products?.image} />
                 </figure>
                 <div className="card-body">
@@ -19,7 +19,7 @@ const Products = ({ products }) => {
                         <button className="btn btn-primary w-full btn-sm">Add to Wishlist</button>
                     </div>
                 </div>
-            </div>s
+            </div>
         </div>
     );
 };

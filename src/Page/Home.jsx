@@ -5,6 +5,8 @@ import Footer from '../Component/Footer';
 import Banner from '../Component/Home/Banner';
 import ShowProducts from '../Component/Home/ShowProducts';
 import FreeqenAsk from '../Component/Home/FreeqenAsk';
+import CustomerFeedback from '../Component/Home/CustomerFeedback';
+import { Category } from '../Component/Home/Category';
 
 const Home = () => {
     return (
@@ -16,6 +18,8 @@ const Home = () => {
                 </div>
                 <div className='container mx-auto'>
                     <ShowProducts></ShowProducts>
+                    <Category></Category> 
+                    <CustomerFeedback></CustomerFeedback>
                     <FreeqenAsk></FreeqenAsk>
                 </div>
             </div>
