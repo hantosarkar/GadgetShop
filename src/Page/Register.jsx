@@ -43,10 +43,13 @@ const Register = () => {
         <div>
             <Nav></Nav>
             <div className="hero bg-base-200 min-h-screen">
-                <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="hero-content w-1/2 flex-col lg:flex-row-reverse">
                     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                         <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-control">
+                                <div className='text-center py-3'>
+                                    <span className="text-xl font-bold">Register</span>
+                                </div>
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
@@ -59,12 +62,22 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input {...register('password', { required: true, minLength: 6 })} type="password" placeholder="password" className="input input-bordered" />
+                                <input {...register('password', {
+                                    required: true,
+                                    minLength: {
+                                        value: 8, message: "Password must be at least 8 characters long"
+                                    },
+                                    pattern: {
+                                        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                                        message: "include an uppercase letter, a lowercase letter, a number, and a special character."
+                                    }
+                                })}
+                                    type="password" placeholder="password" className="input input-bordered" />
                                 {
                                     errors.password == "required" && (<p className='font-light text-red-600'>password is required </p>
                                     )}
                                 {
-                                    errors.password == "minLength" && (<p className='font-light text-red-600'>password mini 6 chr </p>
+                                    errors.password && (<p className='font-thin text-red-600'>{errors.password.message} </p>
                                     )}
                             </div>
                             <div className="form-control">
@@ -72,8 +85,8 @@ const Register = () => {
                                     <span className="label-text">Role</span>
                                 </label>
                                 <select {...register('Role')} className="select select-bordered w-full max-w-xs">
-                                    <option>Seller</option>
                                     <option>Buyer</option>
+                                    <option>Seller</option>
                                 </select>
                                 <label className="label">
                                     <span className='label-text-alt'>Do you have an account ? </span>

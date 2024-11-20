@@ -3,7 +3,7 @@ import Nav from '../Component/Nav';
 import Footer from '../Component/Footer';
 import axios from 'axios';
 import Products from '../Component/Product/Products';
-
+import { GrPowerReset } from "react-icons/gr";
 const Product = () => {
 
     const [products, setProduct] = useState([]);
@@ -32,17 +32,27 @@ const Product = () => {
 
     const handleShort = (e) => {
         setSort(e.target.value);
+
     }
 
 
     const handleBrandSearch = (e) => {
+        setCategorySearch("");
         setBrandSearch(e.target.value)
-
     }
 
     const handleCategorySearch = (e) => {
+        setBrandSearch("");
         setCategorySearch(e.target.value)
 
+    }
+
+
+    const handleReset = () => {
+        setSort("ASC");
+        setCategorySearch("");
+        setBrandSearch("");
+        window.location.reload();
     }
 
 
@@ -50,7 +60,7 @@ const Product = () => {
         <div>
             <Nav></Nav>
             <div className='min-h-screen container mx-auto'>
-                <div class="flex gap-4 justify-between p-6">
+                <div class="flex gap-4 justify-between p-6 mt-10">
                     <div class="bg-base-200 w-52 min-h-screen p-3 rounded-t-md">
                         <h1 className='text-center p-2 text-xl font-bold'>Filter</h1>
                         <div className='space-y-3'>
@@ -73,13 +83,15 @@ const Product = () => {
                                     {
 
                                         brand.map((brand, i) =>
-                                            <option key={i}>{brand}</option>
+                                            <option key={i} value={brand}>{brand}</option>
                                         )
                                     }
                                 </select>
                             </div>
                             <div>
-                                <button className='btn w-full bg-gray-400'>Reset</button>
+                                <button  onClick={handleReset} className='btn w-full bg-gray-400'>
+                                  <GrPowerReset/>  Reset
+                                    </button>
                             </div>
                         </div>
                     </div>
