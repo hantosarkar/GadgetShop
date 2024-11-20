@@ -7,10 +7,10 @@ import ShowProducts from '../Component/Home/ShowProducts';
 import FreeqenAsk from '../Component/Home/FreeqenAsk';
 import CustomerFeedback from '../Component/Home/CustomerFeedback';
 import { Category } from '../Component/Home/Category';
-
+import  "./Home.css"
 const Home = () => {
     return (
-        <div>
+        <div className='poppins-regular'>
             <Nav></Nav>
             <div className='min-h-screen w-full'>
                 <div className='w-full'>

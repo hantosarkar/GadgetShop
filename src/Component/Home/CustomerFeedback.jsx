@@ -3,7 +3,7 @@ import React from 'react';
 const CustomerFeedback = () => {
     return (
         <div>
-            <div className=' w-full'>
+            <div className='w-full'>
                 <div>
                     <h1 className='text-2xl py-20 font-bold text-center'>Customer Feedback </h1>
                 </div>
