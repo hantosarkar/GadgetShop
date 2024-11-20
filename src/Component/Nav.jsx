@@ -70,8 +70,8 @@ const Nav = () => {
                         </div>
                             :
                             <div className='flex gap-3'>
-                                <NavLink to="/Login" className="btn btn-sm bg-info  text-white lg:btn btn-info lg:text-white">Login</NavLink>
-                                <NavLink to="/Register" className="btn btn-sm bg-accent  text-white lg:btn btn-accent lg:text-white ">Register</NavLink>
+                                <NavLink to="/Login" className="btn btn-sm bg-info  text-white">Login</NavLink>
+                                <NavLink to="/Register" className="btn btn-sm bg-accent  text-white">Register</NavLink>
                             </div>
                     }
 
