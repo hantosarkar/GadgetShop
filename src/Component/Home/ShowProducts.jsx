@@ -15,9 +15,9 @@ const ShowProducts = () => {
     return (
         <>
             <div>
-                <h1 className='text-2xl py-10 font-bold text-center'>Products</h1>
+                <h1 className='text-2xl py-10 font-bold text-center'>Featured Products</h1>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-4 py-10 gap-4 items-center justify-center'>
+            <div className='grid bg-base-200 p-4 rounded-lg lg:p-4 grid-cols-1 lg:grid-cols-4 py-10 gap-4 items-center justify-center'>
 
                 {
                     products.map((product, i) =>

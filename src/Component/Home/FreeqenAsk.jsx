@@ -6,7 +6,7 @@ const FreeqenAsk = () => {
             <div>
                 <h1 className='text-2xl py-10 font-bold text-center'>Frequently Ask Question </h1>
             </div>
-            <div className='flex flex-col md:flex-row lg:flex-row gap-5 p-5'>
+            <div className='flex flex-col md:flex-row lg:flex-row gap-5 lg:p-5'>
                 <div>
                     <img src={fqa} alt="" />
                 </div>

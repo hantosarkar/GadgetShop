@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/Provider';
+import { CiShoppingCart } from 'react-icons/ci';
 
 const Nav = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -47,6 +48,12 @@ const Nav = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+
+                    <Link to="/ShowCart"><button className="btn  btn-ghost">
+                        <CiShoppingCart className="text-xl font-bold" />
+                        <div className="badge text-white badge-secondary">11</div>
+                    </button>
+                    </Link>
 
                     {
                         user ? <div className="dropdown dropdown-end">

@@ -16,7 +16,7 @@ const Products = ({ products }) => {
                     <p>Brand : {products?.brand}</p>
                     <p className='font-bold'>Price : {products?.price}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary w-full btn-sm">Add to Wishlist</button>
+                        <button className="btn bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% text-white w-full btn-sm">Add to Wishlist</button>
                     </div>
                 </div>
             </div>
