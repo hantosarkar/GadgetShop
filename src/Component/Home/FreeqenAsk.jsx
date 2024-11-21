@@ -2,16 +2,16 @@ import React from 'react';
 import fqa from "./../../../public/Images/fqa.jpg"
 const FreeqenAsk = () => {
     return (
-        <div>
+        <div className='bg-base-100 rounded-lg mt-10'>
             <div>
                 <h1 className='text-2xl py-10 font-bold text-center'>Frequently Ask Question </h1>
             </div>
             <div className='flex flex-col md:flex-row lg:flex-row gap-5 lg:p-5'>
                 <div>
-                    <img src={fqa} alt="" />
+                    <img className='rounded-lg' src={fqa} alt="" />
                 </div>
                 <div className='w-4/5 mx-auto py-10 space-y-5'>
-                    <div className="collapse collapse-plus bg-base-200">
+                    <div className="collapse collapse-plus bg-base-300">
                         <input type="radio" name="my-accordion-3" defaultChecked />
                         <div className="collapse-title text-xl font-medium">আমি কি পণ্য ফিরিয়ে দিতে পারব?</div>
                         <div className="collapse-content">
@@ -19,14 +19,14 @@ const FreeqenAsk = () => {
                         </div>
 
                     </div>
-                    <div className="collapse collapse-plus bg-base-200">
+                    <div className="collapse collapse-plus bg-base-300">
                         <input type="radio" name="my-accordion-3" />
                         <div className="collapse-title text-xl font-medium">আমি কি ডেলিভারি ফি পাব ?</div>
                         <div className="collapse-content">
                             <p>ডেলিভারি ফি আমাদের ওয়েবসাইটে নির্ধারিত অঞ্চলের উপর নির্ভর করে। কিছু বিশেষ ক্যাম্পেইন বা অফার চলাকালে আমরা বিনামূল্যে ডেলিভারি অফার করতে পারি। ডেলিভারি ফি সম্পর্কে আরো জানতে, আপনি চেকআউট পেজে গিয়ে আপনার ঠিকানা ও পণ্যের ধরন অনুযায়ী ফি দেখতে পারবেন।</p>
                         </div>
                     </div>
-                    <div className="collapse collapse-plus bg-base-200">
+                    <div className="collapse collapse-plus bg-base-300">
                         <input type="radio" name="my-accordion-3" />
                         <div className="collapse-title text-xl font-medium">আমি কি বিভিন্ন পেমেন্ট মেথড ব্যবহার করতে পারব?</div>
                         <div className="collapse-content">

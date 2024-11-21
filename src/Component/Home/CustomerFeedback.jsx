@@ -3,9 +3,9 @@ import React from 'react';
 const CustomerFeedback = () => {
     return (
         <div>
-            <div className='w-full'>
+            <div className='w-full bg-base-200 rounded-lg mt-10 lg:p-10'>
                 <div>
-                    <h1 className='text-2xl py-20 font-bold text-center'>Customer Feedback </h1>
+                    <h1 className='text-2xl py-10 font-bold text-center'>Customer Feedback </h1>
                 </div>
                 <div className="carousel w-full rounded-lg bg-base-300">
                     <div id="slide1" className="carousel-item relative text-white w-full bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% text-whi">
