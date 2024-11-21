@@ -7,6 +7,8 @@ import Dashboard from "../Layout/Dashboard";
 import Overview from "../Page/Overview";
 import Product from "../Page/Product";
 import ProductDetails from "../Component/Product/ProductDetails";
+import About from "../Page/About";
+import ContactUs from "../Page/ContactUs";
 
 
 
@@ -22,6 +24,14 @@ const Routes = createBrowserRouter([
             {
                 path: "/Product",
                 element:<Product></Product>
+            },
+            {
+                path: "/About",
+                element:<About></About>
+            },
+            {
+                path: "/Contact",
+                element:<ContactUs></ContactUs>
             },
             {
                 path: "/ProductDetails/:_id",

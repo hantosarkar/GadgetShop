@@ -28,6 +28,9 @@ const Nav = () => {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             <li><NavLink to="/">Home</NavLink></li>
+                            <li><NavLink to="/Product">Product</NavLink></li>
+                            <li><NavLink to="/About">About Us</NavLink></li>
+                            <li><NavLink to="/Contact">Contact Us</NavLink></li>
                             {/* <li>
                                 <a>Parent</a>
                                 <ul className="p-2">
@@ -35,7 +38,7 @@ const Nav = () => {
                                     <li><a>Submenu 2</a></li>
                                 </ul>
                             </li> */}
-                            <li><a>About Us</a></li>
+
                         </ul>
                     </div>
                     <a className="btn btn-ghost lg:text-xl">Gadget Shop</a>
@@ -44,7 +47,8 @@ const Nav = () => {
                     <ul className="menu menu-horizontal px-1">
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/Product">Product</NavLink></li>
-                        <li><a>About Us</a></li>
+                        <li><NavLink to="/About">About Us</NavLink></li>
+                        <li><NavLink to="/Contact">Contact Us</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -56,25 +60,27 @@ const Nav = () => {
                     </Link>
 
                     {
-                        user ? <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img
-                                        alt="Tailwind CSS Navbar component"
-                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                        user
+                            ?
+                            <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img
+                                            alt="Tailwind CSS Navbar component"
+                                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    </div>
                                 </div>
+                                <ul
+                                    tabIndex={0}
+                                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                                    <li>
+                                        <Link to="/Dashboard" className="justify-between">
+                                            Dashboard
+                                        </Link>
+                                    </li>
+                                    <li><a onClick={logOut}>Logout</a></li>
+                                </ul>
                             </div>
-                            <ul
-                                tabIndex={0}
-                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                <li>
-                                    <Link to="/Dashboard" className="justify-between">
-                                        Dashboard
-                                    </Link>
-                                </li>
-                                <li><a onClick={logOut}>Logout</a></li>
-                            </ul>
-                        </div>
                             :
                             <div className='flex gap-3'>
                                 <NavLink to="/Login" className="btn btn-sm bg-info  text-white">Login</NavLink>

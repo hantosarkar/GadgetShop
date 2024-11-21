@@ -5,6 +5,8 @@ import axios from 'axios';
 import Products from '../Component/Product/Products';
 import { GrPowerReset } from "react-icons/gr";
 import { IoIosSearch } from "react-icons/io";
+import  "./Home.css"
+
 const Product = () => {
     const [loading, setLoading] = useState(false);
     const [products, setProduct] = useState([]);
@@ -72,7 +74,7 @@ const Product = () => {
 
 
     return (
-        <div>
+        <div className='poppins-regular'>
             <Nav></Nav>
             <div className='min-h-screen container mx-auto'>
                 <div class="flex flex-col-reverse md:flex-row lg:flex-row gap-5 justify-between p-6 mt-10">
@@ -80,8 +82,8 @@ const Product = () => {
                         <div className='pb-2'>
                             <form onSubmit={handleSearch}>
                                 <div className='flex gap-1'>
-                                    <input type="text" name='search' placeholder='Search' className='border outline-none p-1 px-2 rounded-l-md' />
-                                    <button className='border rounded-r-md p-1 px-2 hover:bg-slate-400 w-full '><IoIosSearch /></button>
+                                    <input type="text" name='search' placeholder='Search' className='border outline-none p-1 px-1  rounded-l-md' />
+                                    <button className='border rounded-r-md p-1 hover:bg-slate-400 w-full '><IoIosSearch /></button>
                                 </div>
                             </form>
                         </div>
