@@ -6,6 +6,7 @@ import Register from "../Page/Register";
 import Dashboard from "../Layout/Dashboard";
 import Overview from "../Page/Overview";
 import Product from "../Page/Product";
+import ProductDetails from "../Component/Product/ProductDetails";
 
 
 
@@ -21,6 +22,10 @@ const Routes = createBrowserRouter([
             {
                 path: "/Product",
                 element:<Product></Product>
+            },
+            {
+                path: "/ProductDetails/:_id",
+                element:<ProductDetails></ProductDetails>
             },
             {
                 path: "/Login",
