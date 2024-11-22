@@ -33,7 +33,6 @@ const Provider = ({ children }) => {
         }
     }
 
-
     const regisTer = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
