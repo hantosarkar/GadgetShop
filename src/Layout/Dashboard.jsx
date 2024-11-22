@@ -6,23 +6,24 @@ import { TbReorder } from "react-icons/tb";
 import { FaUser } from "react-icons/fa";
 import { FaClipboardList } from "react-icons/fa";
 import { FaAddressBook } from "react-icons/fa";
-
+import { IoMdMenu } from "react-icons/io";
+import { IoIosSettings } from "react-icons/io";
+import { FaUserCog } from "react-icons/fa";
 const Dashboard = () => {
 
     const { role } = useContext(AuthContext)
 
 
-    const adminRoute = [
-        { name: 'Dashboard Overview', path: '/admin/dashboard', icon: '<MdOutlineProductionQuantityLimits/>' },
-        { name: 'User Management', path: '/admin/users' },
-        { name: 'Analytics', path: '/admin/analytics' },
-        { name: 'Settings', path: '/admin/settings' }
+    const admin = [
+        { name: 'User Management', path: '/admin/dashboard', icon: <FaUserCog /> },
+        { name: 'Analytics', path: '/admin/analytics', icon: <TbReorder /> },
+        { name: 'Settings', path: '/admin/settings', icon: <IoIosSettings /> }
     ];
 
     const seller = [
-        { name: 'My Product', path: '/seller/products' , icon: <FaClipboardList />  },
-        { name: 'Add Product', path: '/seller/orders' , icon: <FaAddressBook /> },
-        { name: 'Profile', path: '/seller/settings' , icon: <FaUser /> }
+        { name: 'My Product', path: '/seller/products', icon: <FaClipboardList /> },
+        { name: 'Add Product', path: '/seller/orders', icon: <FaAddressBook /> },
+        { name: 'Profile', path: '/seller/settings', icon: <FaUser /> }
     ];
 
     const buyer = [
@@ -31,7 +32,6 @@ const Dashboard = () => {
         { name: 'Profile', path: '/buyer/profile', icon: <FaUser /> }
     ];
 
-
     return (
         <div>
             <div>
@@ -39,7 +39,7 @@ const Dashboard = () => {
                 <div className="drawer lg:drawer-open">
                     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content flex p-10 flex-col">
-                        <label htmlFor="my-drawer-2" className="drawer-button ml-80 lg:hidden"></label>
+                        <label htmlFor="my-drawer-2" className="drawer-button font-bold text-xl lg:hidden"><IoMdMenu /></label>
                         {/* Page content here */}
                         <Outlet></Outlet>
                     </div>
@@ -57,7 +57,7 @@ const Dashboard = () => {
                                         <div className='my-7 space-y-2'>
                                             {
                                                 buyer.map(b =>
-                                                    <li className='text-center text-white'><Link className='btn btn-outline text-white' to="">{b.icon}{b.name}</Link></li>
+                                                    <li className='text-center text-white'><Link className='btn btn-outline flex gap-5 text-white' to="">{b.icon}{b.name}</Link></li>
                                                 )
                                             }
                                         </div>
@@ -72,7 +72,22 @@ const Dashboard = () => {
                                         <div className='my-7 space-y-2'>
                                             {
                                                 seller.map(b =>
-                                                    <li className='text-center text-white'><Link className='btn btn-outline text-white' to="">{b.icon}{b.name}</Link></li>
+                                                    <li className='text-center text-white'><Link className='btn flex gap-5 btn-outline text-white' to="">{b.icon}{b.name}</Link></li>
+                                                )
+                                            }
+                                        </div>
+                                        <li className='text-center text-white'><Link className='btn btn-info btn-sm' to="/">Home</Link></li>
+                                    </>
+                                }
+                                {
+                                    role === "Admin"
+                                    &&
+                                    <>
+                                        <li className='text-center font-bold text-3xl text-white'>Dashboard</li>
+                                        <div className='my-7 space-y-2'>
+                                            {
+                                                admin.map(b =>
+                                                    <li className='text-center text-white'><Link className='btn flex gap-5 btn-outline text-white' to="">{b.icon}{b.name}</Link></li>
                                                 )
                                             }
                                         </div>

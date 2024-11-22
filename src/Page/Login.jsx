@@ -10,7 +10,7 @@ import { auth } from '../Firebase/FirebaseInfo';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { split } from 'postcss/lib/list';
-
+import "./Home.css"
 const Login = () => {
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();
@@ -58,7 +58,7 @@ const Login = () => {
 
 
     return (
-        <div>
+        <div className='poppins-regular'>
             <Nav></Nav>
             <div className="hero bg-base-200 min-h-screen">
                 <div className="hero-content lg:w-1/2 flex-col">

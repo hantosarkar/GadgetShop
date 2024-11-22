@@ -8,6 +8,7 @@ import axios from 'axios';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { FcGoogle } from "react-icons/fc";
 import { auth } from '../Firebase/FirebaseInfo';
+import "./Home.css"
 const Register = () => {
     const navigate = useNavigate();
     const googleProvider = new GoogleAuthProvider();
@@ -29,7 +30,7 @@ const Register = () => {
         if (email && password) {
             regisTer(email, password)
                 .then(res => {
-                    axios.post('http://localhost:3000/user', user).
+                    axios.post('https://gadget-server-six.vercel.app/user', user).
                         then(res => {
                             if (res.data.acknowledged) {
                                 navigate(location?.state ? location.state : '/');
@@ -55,7 +56,7 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div className='poppins-regular'>
             <Nav></Nav>
             <div className="hero bg-base-200 min-h-screen">
                 <div className="hero-content lg:w-1/2 flex-col lg:flex-row-reverse">

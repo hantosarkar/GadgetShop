@@ -6,7 +6,7 @@ export const Category = () => {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true)
-        axios.get(`http://localhost:3000/Product`)
+        axios.get(`https://gadget-server-six.vercel.app/Product`)
             .then(res => {
                 if (res.data) {
                     setCategory(res.data.allCategory);

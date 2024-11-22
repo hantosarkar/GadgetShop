@@ -18,7 +18,7 @@ const ProductDetails = () => {
 
     useEffect(() => {
         setLoading(true)
-        axios.get(`http://localhost:3000/Product/${id}`).
+        axios.get(`https://gadget-server-six.vercel.app/Product/${id}`).
             then(res => {
                 setSingleProduct(res.data)
                 setLoading(false)

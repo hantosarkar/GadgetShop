@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useQuery } from '@tanstack/react-query';
 
 
+
 export const AuthContext = createContext();
 const Provider = ({ children }) => {
 
@@ -25,7 +26,7 @@ const Provider = ({ children }) => {
             window.location.href = "/Login"
         } else {
             const data = { id, user }
-            const res = await axios.patch('http://localhost:3000/wishlist', data);
+            const res = await axios.patch('https://gadget-server-six.vercel.app/wishlist', data);
             console.log(res.data);
             if (res.data.modifiedCount > 0) {
                 toast.success("add to WishList Success")
@@ -54,7 +55,7 @@ const Provider = ({ children }) => {
             const unsubscribe = onAuthStateChanged(auth, currentUser => {
                 setUser(currentUser);
                 if (currentUser) {
-                    axios.post("http://localhost:3000/jwt", { email: currentUser.email }).
+                    axios.post("https://gadget-server-six.vercel.app/jwt", { email: currentUser.email }).
                         then(res => {
                             if (res.data) {
                                 localStorage.setItem('Token', res.data?.token)
@@ -76,7 +77,7 @@ const Provider = ({ children }) => {
 
         const userRole = async () => {
             setLoading(true);
-            const res = await axios.get(`http://localhost:3000/user${user?.email}`);
+            const res = await axios.get(`https://gadget-server-six.vercel.app/user${user?.email}`);
             if (res.data?.role) {
                 setRole(res.data.role);
                 setWishlist(res.data.wishlist);

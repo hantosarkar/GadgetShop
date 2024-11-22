@@ -2,8 +2,8 @@ import React from 'react';
 
 const AboutContact = () => {
     return (
-        <div>
-            <div className='container mx-auto bg-base-300 p-9'>
+        <div className='bg-base-300'>
+            <div className='container mx-auto p-9'>
                 <div>
                     <h1 className='text-2xl py-10 font-bold text-center'>Who We Are</h1>
                 </div>

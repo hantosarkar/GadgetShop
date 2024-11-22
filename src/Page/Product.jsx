@@ -22,7 +22,7 @@ const Product = () => {
     useEffect(() => {
         setLoading(true);
         const fetch = () => {
-            axios.get(`http://localhost:3000/Product?Brand=${brandSearch}&Category=${CategorySearch}&Short=${sort}&search=${search}`)
+            axios.get(`https://gadget-server-six.vercel.app/Product?Brand=${brandSearch}&Category=${CategorySearch}&Short=${sort}&search=${search}`)
                 .then(res => {
                     if (res.data) {
                         setProduct(res.data.Product);
@@ -74,7 +74,7 @@ const Product = () => {
 
 
     return (
-        <div className='poppins-regular'>
+        <div className='poppins-regular bg-base-300'>
             <Nav></Nav>
             <div className='min-h-screen container mx-auto'>
                 <div className="flex flex-col-reverse md:flex-row lg:flex-row gap-5 justify-between p-6 mt-10">
@@ -83,7 +83,7 @@ const Product = () => {
                             <form onSubmit={handleSearch}>
                                 <div className='flex gap-1'>
                                     <input type="text" name='search' placeholder='Search' className='border outline-none p-1 px-1  rounded-l-md' />
-                                    <button className='border rounded-r-md p-1 hover:bg-slate-400 w-full '><IoIosSearch /></button>
+                                    <button className='border rounded-r-md p-1 bg-slate-300 hover:bg-slate-400 w-full '><IoIosSearch /></button>
                                 </div>
                             </form>
                         </div>
