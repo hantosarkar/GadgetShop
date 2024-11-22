@@ -4,7 +4,7 @@ import { AuthContext } from '../Provider/Provider';
 import { CiShoppingCart } from 'react-icons/ci';
 
 const Nav = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user , logOut } = useContext(AuthContext);
     return (
         <div>
             <div className="navbar bg-base-100">

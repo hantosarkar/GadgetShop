@@ -2,10 +2,10 @@ import React from 'react';
 import Nav from '../Component/Nav';
 import Footer from '../Component/Footer';
 import getinTuch from './../../public/Images/getinTuch.png'
-
+import "./Home.css"
 const ContactUs = () => {
     return (
-        <div>
+        <div className='poppins-regular'>
             <Nav></Nav>
             <div className='min-h-screen container mx-auto'>
                 <div className='flex flex-col md:flex-row lg:flex-row  justify-center items-center gap-5  bg-gradient-to-r  from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% rounded-lg '>

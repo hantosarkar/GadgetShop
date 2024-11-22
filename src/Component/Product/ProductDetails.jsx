@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Nav from '../Nav';
 import Footer from '../Footer';
 import { useParams } from 'react-router-dom';
@@ -8,8 +8,10 @@ import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { CiShoppingCart } from "react-icons/ci";
 import { GoPlus } from "react-icons/go";
 import { AiOutlineMinus } from "react-icons/ai";
-
+import "./../../Page/Home.css"
+import { AuthContext } from '../../Provider/Provider';
 const ProductDetails = () => {
+    const {addToWishlist} = useContext(AuthContext);
     const { _id: id } = useParams();
     const [loading, setLoading] = useState(false);
     const [singleProduct, setSingleProduct] = useState()
@@ -24,7 +26,7 @@ const ProductDetails = () => {
     }, [])
 
     return (
-        <div>
+        <div className='poppins-regular'>
             <Nav></Nav>
             <div className='lg:p-10 min-h-screen container mx-auto'>
                 {/* <div className='card shadow-lg min-h-96 flex flex-col md:flex-row justify-center gap-5  lg:flex-row p-4'>
@@ -63,7 +65,7 @@ const ProductDetails = () => {
                                 </div>
                                 <div className='flex px-14 flex-col md:flex-row lg:flex-row gap-5'>
                                     {/* <button className="btn btn-accent text-white ">Buy Now </button> */}
-                                    <button className="btn btn-info text-white lg:w-1/2"><CiShoppingCart />Add to Wishlist</button>
+                                    <button onClick={() => addToWishlist(singleProduct?._id)} className="btn btn-info text-white lg:w-1/2"><CiShoppingCart />Add to Wishlist</button>
                                 </div>
                             </div>
                         </div>

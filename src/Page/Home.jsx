@@ -7,7 +7,7 @@ import ShowProducts from '../Component/Home/ShowProducts';
 import FreeqenAsk from '../Component/Home/FreeqenAsk';
 import CustomerFeedback from '../Component/Home/CustomerFeedback';
 import { Category } from '../Component/Home/Category';
-import  "./Home.css"
+import "./Home.css"
 const Home = () => {
     return (
         <div className='poppins-regular'>
@@ -18,7 +18,7 @@ const Home = () => {
                 </div>
                 <div className='container mx-auto'>
                     <ShowProducts></ShowProducts>
-                    <Category></Category> 
+                    <Category></Category>
                     <CustomerFeedback></CustomerFeedback>
                     <FreeqenAsk></FreeqenAsk>
                 </div>

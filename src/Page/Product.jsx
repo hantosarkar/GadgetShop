@@ -77,8 +77,8 @@ const Product = () => {
         <div className='poppins-regular'>
             <Nav></Nav>
             <div className='min-h-screen container mx-auto'>
-                <div class="flex flex-col-reverse md:flex-row lg:flex-row gap-5 justify-between p-6 mt-10">
-                    <div class="w-full md:w-60 lg:w-60 p-3 rounded-t-md">
+                <div className="flex flex-col-reverse md:flex-row lg:flex-row gap-5 justify-between p-6 mt-10">
+                    <div className="w-full md:w-60 lg:w-60 p-3 rounded-t-md">
                         <div className='pb-2'>
                             <form onSubmit={handleSearch}>
                                 <div className='flex gap-1'>
@@ -87,7 +87,7 @@ const Product = () => {
                                 </div>
                             </form>
                         </div>
-                        <div class="bg-base-200 w-full md:w-60 lg:w-60  p-3 rounded-t-md">
+                        <div className="bg-base-200 w-full md:w-60 lg:w-60  p-3 rounded-t-md">
                             <h1 className='text-center p-2 text-xl font-bold'>Filter</h1>
                             <div className='space-y-3'>
                                 <div>
@@ -122,7 +122,7 @@ const Product = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="flex-1">
+                    <div className="flex-1">
 
                         {loading && <div className=' text-center p-10'><span className="loading loading-bars loading-sm"></span></div>}
 
@@ -139,7 +139,7 @@ const Product = () => {
                             }
                         </div>
                     </div>
-                    <div class="w-52">
+                    <div className="w-52">
                         <div className='flex gap-3 items-center'>
                             <h1>Prize</h1>
                             <select onClick={handleShort} className="border p-1 rounded outline-none">
