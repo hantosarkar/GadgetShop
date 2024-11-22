@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import { auth } from '../Firebase/FirebaseInfo';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import { useQuery } from '@tanstack/react-query';
 
 
@@ -14,14 +14,22 @@ const Provider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [loginSuccess, setLoginSuccess] = useState(false);
     const [role, setRole] = useState(null);
+    const [wishlist, setWishlist] = useState([]);
+    const [changeId, setChangeId] = useState();
+    console.log(changeId);
 
-
-
-    const addToWishlist = (prop) => {
-        console.log(prop);
+    const addToWishlist = async (id) => {
+        setChangeId(id);
         if (!user) {
             toast.error('Login First');
             window.location.href = "/Login"
+        } else {
+            const data = { id, user }
+            const res = await axios.patch('http://localhost:3000/wishlist', data);
+            console.log(res.data);
+            if (res.data.modifiedCount > 0) {
+                toast.success("add to WishList Success")
+            }
         }
     }
 
@@ -72,19 +80,21 @@ const Provider = ({ children }) => {
             const res = await axios.get(`http://localhost:3000/user${user?.email}`);
             if (res.data?.role) {
                 setRole(res.data.role);
+                setWishlist(res.data.wishlist);
                 setLoading(false);
             }
         }
 
         userRole();
         authUser();
-    }, [auth, user?.email]);
+    }, [auth, user?.email, changeId]);
 
 
-    const authInfo = { regisTer, Login, logOut, user, role , addToWishlist, loading, setLoginSuccess }
+    const authInfo = { regisTer, Login, logOut, user, role, addToWishlist, wishlist, loading, setLoginSuccess }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
+            <ToastContainer></ToastContainer>
         </AuthContext.Provider>
     );
 };

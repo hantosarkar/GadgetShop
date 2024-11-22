@@ -4,7 +4,7 @@ import { AuthContext } from '../Provider/Provider';
 import { CiShoppingCart } from 'react-icons/ci';
 
 const Nav = () => {
-    const { user , logOut } = useContext(AuthContext);
+    const { user , logOut , wishlist } = useContext(AuthContext);
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -55,7 +55,7 @@ const Nav = () => {
 
                     <Link to="/ShowCart"><button className="btn  btn-ghost">
                         <CiShoppingCart className="text-xl font-bold" />
-                        <div className="badge text-white badge-secondary">11</div>
+                        <div className="badge text-white badge-secondary">{wishlist.length}</div>
                     </button>
                     </Link>
 

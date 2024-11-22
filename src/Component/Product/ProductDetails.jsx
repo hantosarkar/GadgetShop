@@ -11,7 +11,7 @@ import { AiOutlineMinus } from "react-icons/ai";
 import "./../../Page/Home.css"
 import { AuthContext } from '../../Provider/Provider';
 const ProductDetails = () => {
-    const {addToWishlist} = useContext(AuthContext);
+    const { addToWishlist, role } = useContext(AuthContext);
     const { _id: id } = useParams();
     const [loading, setLoading] = useState(false);
     const [singleProduct, setSingleProduct] = useState()
@@ -52,20 +52,29 @@ const ProductDetails = () => {
                                     <div className='lg:pr-96'>
                                         <span>{singleProduct?.description}</span>
                                     </div>
-                                    <div className='flex gap-5 py-10'>
-                                        <label >Quantity</label>
-                                        <div>
-                                            <button className='px-5 p-2 bg-slate-300'><AiOutlineMinus /></button>
+
+                                    {
+                                        (!(role === "admin" || role === "Seller"))
+                                        &&
+                                        <div className='flex gap-5 py-10'>
+                                            <label >Quantity</label>
+                                            <div>
+                                                <button className='px-5 p-2 bg-slate-300'><AiOutlineMinus /></button>
+                                            </div>
+                                            <div>1</div>
+                                            <div>
+                                                <button className='px-5 p-2 bg-slate-300'><GoPlus /></button>
+                                            </div>
                                         </div>
-                                        <div>1</div>
-                                        <div>
-                                            <button className='px-5 p-2 bg-slate-300'><GoPlus /></button>
-                                        </div>
-                                    </div>
+                                    }
                                 </div>
                                 <div className='flex px-14 flex-col md:flex-row lg:flex-row gap-5'>
-                                    {/* <button className="btn btn-accent text-white ">Buy Now </button> */}
-                                    <button onClick={() => addToWishlist(singleProduct?._id)} className="btn btn-info text-white lg:w-1/2"><CiShoppingCart />Add to Wishlist</button>
+                                    {
+                                        (!(role === "admin" || role === "Seller"))
+                                        &&
+                                        <button onClick={() => addToWishlist(singleProduct?._id)} className="btn btn-info text-white lg:w-1/2"><CiShoppingCart />Add to Wishlist</button>
+
+                                    }
                                 </div>
                             </div>
                         </div>
