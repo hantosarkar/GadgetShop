@@ -10,26 +10,26 @@ admin email : abdusshobhan.4444@gmail.com , pass : Aaaaaaaa@1
 buyer email : sss@gmail.com , pass: Aaaaaaaa@1
 seller email : abdusshobhan.4444@gmail.com , pass : sell@gmail.com
 
-## Frontend uses :
+Frontend uses :
 .................
 1.firebase 
 2.tailween css 
 3.daisly ui 
 
 
-## backend  uses :
+backend  uses :
 .................
 1.Express 
 2.JWT token 
 
-## Database uses :
+Database uses :
 .................
 1.MongoDB 
 
 
 
 
-
+## Personal issue
 
 
 

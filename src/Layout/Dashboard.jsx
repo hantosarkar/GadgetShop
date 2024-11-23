@@ -80,7 +80,7 @@ const Dashboard = () => {
                                     </>
                                 }
                                 {
-                                    role === "Admin"
+                                    role === "admin"
                                     &&
                                     <>
                                         <li className='text-center font-bold text-3xl text-white'>Dashboard</li>
