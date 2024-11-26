@@ -6,7 +6,7 @@ Gadget Shop is a modern, responsive web application designed to showcase and sel
 
 
 ## Frontend uses :
-.................
+
 1.firebase 
 2.tailween css 
 3.daisly ui 
