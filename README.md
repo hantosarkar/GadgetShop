@@ -18,18 +18,14 @@ Gadget Shop is a modern, responsive web application designed to showcase and sel
 
 
 ## backend  uses :
-.................
 - Express 
 - JWT token 
 
 ## Database uses :
-.................
 - MongoDB 
 
 
 
-
-## Personal issue
 
 
 
