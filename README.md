@@ -6,20 +6,25 @@ Gadget Shop is a modern, responsive web application designed to showcase and sel
 
 
 ## Frontend uses :
+- firebase 
+- tailween css 
+- daisly ui 
 
-1.firebase 
-2.tailween css 
-3.daisly ui 
+## Tech Stack
+- **Frontend:** React, Next.js, etc.
+- **Backend:** Node.js, Express, etc.
+- **Database:** MongoDB, MySQL, etc.
+- **Other technologies:** C#, .NET Core, etc.
 
 
 ## backend  uses :
 .................
-1.Express 
-2.JWT token 
+- Express 
+- JWT token 
 
 ## Database uses :
 .................
-1.MongoDB 
+- MongoDB 
 
 
 
