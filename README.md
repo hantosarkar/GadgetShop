@@ -2,27 +2,22 @@
 # This Gadget shop 
 
 ## Description
-This project is a web application built with React that helps you track your tasks efficiently.
+Gadget Shop is a modern, responsive web application designed to showcase and sell various electronic gadgets online. The app features a user-friendly interface for browsing products, adding them to the shopping cart, and securely completing purchases.
 
 
-## Users :
-admin email : abdusshobhan.4444@gmail.com , pass : Aaaaaaaa@1
-buyer email : sss@gmail.com , pass: Aaaaaaaa@1
-seller email : abdusshobhan.4444@gmail.com , pass : sell@gmail.com
-
-Frontend uses :
+## Frontend uses :
 .................
 1.firebase 
 2.tailween css 
 3.daisly ui 
 
 
-backend  uses :
+## backend  uses :
 .................
 1.Express 
 2.JWT token 
 
-Database uses :
+## Database uses :
 .................
 1.MongoDB 
 
