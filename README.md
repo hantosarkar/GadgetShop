@@ -13,9 +13,6 @@ Gadget Shop is a modern, responsive web application designed to showcase and sel
 ## Tech Stack
 - **Frontend:** React, Next.js, etc.
 - **Backend:** Node.js, Express, etc.
-- **Database:** MongoDB, MySQL, etc.
-- **Other technologies:** C#, .NET Core, etc.
-
 
 ## backend  uses :
 - Express 
